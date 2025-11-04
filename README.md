@@ -8,7 +8,17 @@ functions.
 ```shell
 bun install
 bun run dev
-; I'm assuming you have a php server running on your machine
+```
+
+## Config
+
+```js
+export default defineConfig({
+	plugins: [
+		sveltekit(),
+		phpkit({ endpoint: 'http://localhost/path/to/php/index.php' })
+	]
+});
 ```
 
 ## Conventions

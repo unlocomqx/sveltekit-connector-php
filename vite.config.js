@@ -4,7 +4,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { phpkit } from './src/lib/index.js';
 
 export default defineConfig({
-	plugins: [sveltekit(), devtoolsJson(), phpkit({ endpoint: 'http://localhost/svelte/sveltekit-connector-php/src/php/index.php' })],
+	plugins: [
+		sveltekit(),
+		devtoolsJson(),
+		phpkit({ endpoint: 'http://localhost/svelte/sveltekit-connector-php/src/php/index.php' })
+	],
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
