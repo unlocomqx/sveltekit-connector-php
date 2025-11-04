@@ -16,7 +16,7 @@ import {
 const sveltekit_dir = '.svelte-kit';
 
 const parser = new Parser();
-parser.setLanguage(phpLang);
+parser.setLanguage(phpLang.php_only);
 
 /**
  * @typedef {Object} RemoteFunction
@@ -44,9 +44,9 @@ function transform_code(code, file_path, config, options) {
 	/** @type {RemoteFunction[]} */
 	const remote_functions = [];
 	for (const node of tree.rootNode.children) {
-		if (node.type === 'function_declaration') {
+		if (node.type === 'function_definition') {
 			// Find the function name node (usually the second child after 'function' keyword)
-			const function_name_node = node.children.find((child) => child.type === 'identifier');
+			const function_name_node = node.children.find((child) => child.type === 'name');
 			const name = function_name_node ? function_name_node.text : 'unknown';
 			if (name) {
 				let type = '';

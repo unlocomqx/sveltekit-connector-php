@@ -2,7 +2,7 @@ export const imports = `import { _imports_ } from '$app/server';`;
 
 export const queryFn = `
 export const _name_ = query(() =>{
-	return fetch('_endpoint_/_path_?fn=_name_', {
+	return fetch('_endpoint_?path=_path_&fn=_name_', {
 		headers: {
 			'Content-Type': 'application/json',
 		},
@@ -12,7 +12,7 @@ export const _name_ = query(() =>{
 
 export const formFn = `export const _name_ = form(null, (data) => {
   console.log(data)
-	return fetch('_endpoint_/_path_?fn=_name_', {
+	return fetch('_endpoint_?path=_path_&fn=_name_', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export const formFn = `export const _name_ = form(null, (data) => {
 `;
 
 export const commandFn = `export const _name_ = command((data) =>{
-	return fetch('_endpoint_/_path_?fn=_name_', {
+	return fetch('_endpoint_?path=_path_&fn=_name_', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
